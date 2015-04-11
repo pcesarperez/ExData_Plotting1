@@ -44,7 +44,13 @@ LEGEND_POS <- "topright"
 # Reads the filtered data to plot.
 # It is important to read the date/time column in POSIXct format.
 data_file <- file (FILTERED_DATA_FILE, "r")
-filtered_data <- read.table (data_file, header = TRUE, sep = SEPARATOR, stringsAsFactors = FALSE, colClasses = c ("Date_time" = "POSIXct"))
+filtered_data <- read.table (
+	data_file,
+	header = TRUE,
+	sep = SEPARATOR,
+	stringsAsFactors = FALSE,
+	colClasses = c ("Date_time" = "POSIXct")
+)
 close (data_file)
 
 # Creates a PNG file graphic device to hold the plot.

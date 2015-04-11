@@ -27,14 +27,27 @@ PLOT_X_LABEL <- "Global Active Power (kilowatts)"
 
 # Reads the filtered data to plot.
 data_file <- file (FILTERED_DATA_FILE, "r")
-filtered_data <- read.table (data_file, header = TRUE, sep = SEPARATOR)
+filtered_data <- read.table (
+	data_file,
+	header = TRUE,
+	sep = SEPARATOR,
+	stringsAsFactors = FALSE,
+	colClasses = c ("Date_time" = "POSIXct")
+)
 close (data_file)
 
 # Creates a PNG file graphic device to hold the plot.
 png (filename = PNG_PLOT_FILE, width = PNG_WIDTH, height = PNG_HEIGHT)
 
 # This is the actual plot, an histogram.
-hist (filtered_data$Global_active_power, main = PLOT_TITLE, col = PLOT_COLOR, xlab = PLOT_X_LABEL)
+with (filtered_data, {
+	hist (
+		Global_active_power,
+		main = PLOT_TITLE,
+		col = PLOT_COLOR,
+		xlab = PLOT_X_LABEL
+	)
+})
 
 # Closes the PNG file graphic device.
 dev.off ( )
