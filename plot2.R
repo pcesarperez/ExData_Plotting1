@@ -40,7 +40,15 @@ close (data_file)
 png (filename = PNG_PLOT_FILE, width = PNG_WIDTH, height = PNG_HEIGHT)
 
 # This is the actual plot, a line graph (date/time versus global active power consumption).
-plot (filtered_data$Date_time, filtered_data$Global_active_power, type = PLOT_TYPE, xlab = PLOT_X_LABEL, ylab = PLOT_Y_LABEL)
+with (filtered_data, {
+	plot (
+		Date_time,
+		Global_active_power,
+		type = PLOT_TYPE,
+		xlab = PLOT_X_LABEL,
+		ylab = PLOT_Y_LABEL
+	)
+})
 
 # Closes the PNG file graphic device.
 dev.off ( )
