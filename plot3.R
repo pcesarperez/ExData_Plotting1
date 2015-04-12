@@ -14,6 +14,7 @@
 # 	`SEPARATOR`: Character used to separate data in the filtered data file.
 # 	`PLOT_X_LABEL`: Label of the X axis.
 # 	`PLOT_Y_LABEL`: Label of the Y axis.
+# 	`NO_PLOT`: Type of the blank plot which will hold the lines.
 # 	`PLOT_TYPE`: Type of the plot ("l" for a line plot).
 # 	`PLOT_COLOR_METERING_1`: Color for the first subgraph.
 # 	`PLOT_COLOR_METERING_2`: Color for the second subgraph.
